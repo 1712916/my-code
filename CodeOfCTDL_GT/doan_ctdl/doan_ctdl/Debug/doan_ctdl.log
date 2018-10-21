@@ -1,16 +1,18 @@
-﻿Build started 10/18/2018 11:21:14 AM.
-     1>Project "D:\CodeOfCTDL_GT\doan_ctdl\doan_ctdl\doan_ctdl.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/21/2018 9:59:03 AM.
+     1>Project "D:\MY CODE\my-code\CodeOfCTDL_GT\doan_ctdl\doan_ctdl\doan_ctdl.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
          Source.cpp
-     1>d:\codeofctdl_gt\doan_ctdl\doan_ctdl\source.cpp(299): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>d:\codeofctdl_gt\doan_ctdl\doan_ctdl\source.cpp(303): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my code\my-code\codeofctdl_gt\doan_ctdl\doan_ctdl\source.cpp(316): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my code\my-code\codeofctdl_gt\doan_ctdl\doan_ctdl\source.cpp(320): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>d:\my code\my-code\codeofctdl_gt\doan_ctdl\doan_ctdl\source.cpp(330): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+     1>d:\my code\my-code\codeofctdl_gt\doan_ctdl\doan_ctdl\source.cpp(331): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.lib" /MACHINE:X86 Debug\main.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\MY CODE\my-code\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\MY CODE\my-code\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\MY CODE\my-code\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.lib" /MACHINE:X86 Debug\main.obj
          Debug\Source.obj
-         doan_ctdl.vcxproj -> D:\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.exe
-     1>Done Building Project "D:\CodeOfCTDL_GT\doan_ctdl\doan_ctdl\doan_ctdl.vcxproj" (Build target(s)).
+         doan_ctdl.vcxproj -> D:\MY CODE\my-code\CodeOfCTDL_GT\doan_ctdl\Debug\doan_ctdl.exe
+     1>Done Building Project "D:\MY CODE\my-code\CodeOfCTDL_GT\doan_ctdl\doan_ctdl\doan_ctdl.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.48
+Time Elapsed 00:00:01.13

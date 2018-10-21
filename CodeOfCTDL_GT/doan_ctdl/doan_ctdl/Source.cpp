@@ -1,4 +1,4 @@
-#include"Header.h"
+﻿#include"Header.h"
 vector<int>	createSorted(int n)
 {
 
@@ -134,7 +134,7 @@ int heapSort(vector<int > &array, int n)
 	}
 	return 0;
 }
-int quickSort(vector<int > &array,int l, int r)//r=n-1
+int quick(vector<int > &array,int l, int r)//r=n-1
 {
 	if (l >= r)
 	{
@@ -152,11 +152,15 @@ int quickSort(vector<int > &array,int l, int r)//r=n-1
 	}
 	left ++;
 	swap(array[left], array[pivot]);
-	quickSort(array, l, left-1);
-	quickSort(array, left+1, r);
+	quick(array, l, left-1);
+	quick(array, left+1, r);
 	return 0;
 }
-
+int quickSort(vector<int > &array, int n)
+{
+	quick(array, 0, n - 1);
+	return 1;
+}
 void merge(vector<int> &array, int l, int m, int r)
 {
 	int i, j, k;
@@ -281,19 +285,32 @@ int radixSort(vector<int> &array, int n)
 		
 	return 0;
 }
+/************************/
+
+double timeOfRun(int (*nameOfSort)(vector<int>& ,int),vector<int> array, int n)
+{
+	clock_t start, end;
+	start = clock();
+	nameOfSort(array, n);
+	end = clock();// ham đếm thời gian kết thúc
+	double duration = (double)(end- start) / CLOCKS_PER_SEC;
+	return duration;
+}
 
 /************************/
-int saveResults(string nameOfCase, vector<int> Array)
+
+int saveResults(string nameOfCase,vector<int> (*creat)(int), int donvi)
 {
-	int n = Array.size();
+
 	string nameOfFile = "Results.csv";
 	fstream file;
-	file.open(nameOfFile, ios::out);
+	file.open(nameOfFile, ios::app);
 	float size;
 	float size_a = 10;
 	file << setw(8) << left << "case" << setw(10) << left << "size" << setw(10) << left << "bubble" << setw(15) << left << " selection" << setw(15) << left << "insertion" << setw(10) << left << "heap" << setw(10) << left << "quick" << setw(10) << left << "merge" << setw(10) << left << "radix" << endl;
 	for (int i = 1; i <= 6; i++)
 	{
+		vector<int> array;
 		if (i != 3 && i != 5)
 		{
 			size = size_a * pow(10.0, i);
@@ -310,7 +327,8 @@ int saveResults(string nameOfCase, vector<int> Array)
 			}
 			size = size / 10;
 		}
-		file << setw(8) << left << nameOfCase << setw(10) << left << size << setw(10) << left << bubbleSort(Array, n) << setw(15) << left << rand() << setw(15) << left << rand() << setw(10) << left << rand() << setw(10) << left << rand() << setw(10) << left << rand() << setw(10) << left << rand() << endl;
+		array = creat(size);
+		file << setw(8) << left << nameOfCase << setw(10) << left << size << setw(10) << left << timeOfRun(&bubbleSort, array, size)*donvi << setw(15) << left << timeOfRun(&selectionSort, array, size)*donvi << setw(15) << left << timeOfRun(&insertionSort, array, size)*donvi << setw(10) << left << timeOfRun(&heapSort, array, size)*donvi << setw(10) << left << timeOfRun(&quickSort, array, size)*donvi << setw(10) << left << timeOfRun(&mergeSort, array, size)*donvi << setw(10) << left << timeOfRun(&radixSort, array, size)*donvi << endl;
 
 	}
 
