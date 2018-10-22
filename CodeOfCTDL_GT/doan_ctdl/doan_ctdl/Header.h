@@ -18,7 +18,7 @@ int selectionSort(vector<int > &array, int n);
 
 int insertionSort(vector<int > &array, int n);
 
-void heapify(vector<int> &array, int n, int i);
+void heapMax(vector<int> &array, int n, int i);
 int heapSort(vector<int > &array, int n);
 
 int quickSort(vector<int > &array, int n);

@@ -1,0 +1,3 @@
+case    size      bubble     selection     insertion      heap      quick     merge     radix     
+Sorted  100       0.001     0.001          0              0         0.003     0.003     0         
+Sorted  1000      0.042     0.042          0              0.002     0.091     0.011     0.001     

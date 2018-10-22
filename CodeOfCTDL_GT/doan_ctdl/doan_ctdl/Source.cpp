@@ -56,6 +56,7 @@ int bubbleSort(vector<int > &array, int n)
 	}
 	return 1;
 }
+
 int selectionSort(vector<int > &array, int n)
 {
 	int key;
@@ -73,6 +74,7 @@ int selectionSort(vector<int > &array, int n)
 	}
 	return 0;
 }
+
 int insertionSort(vector<int > &array, int n)
 {
 	
@@ -91,50 +93,8 @@ int insertionSort(vector<int > &array, int n)
 	}
 	return 0;
 }
-/************heapSort***********************/
-void heapify(vector<int> &array, int n, int i)
-{
-	int largest = i; // Initialize largest as root 
-	int l = 2 * i + 1; // left = 2*i + 1 
-	int r = 2 * i + 2; // right = 2*i + 2 
-
-	// If left child is larger than root 
-	if (l < n && array[l] > array[largest])
-		largest = l;
-
-	// If right child is larger than largest so far 
-	if (r < n && array[r] > array[largest])
-		largest = r;
-
-	// If largest is not root 
-	if (largest != i)
-	{
-		swap(array[i], array[largest]);
-
-		// Recursively heapify the affected sub-tree 
-		heapify(array, n, largest);
-	}
-}
-
-// main function to do heap sort 
-
-int heapSort(vector<int > &array, int n)
-{
-	for (int i = n / 2 - 1; i >= 0; i--)
-		heapify(array, n, i);
-
-	// One by one extract an element from heap 
-	for (int i = n - 1; i >= 0; i--)
-	{
-		// Move current root to end 
-		swap(array[0], array[i]);
-
-		// call max heapify on the reduced heap 
-		heapify(array, i, 0);
-	}
-	return 0;
-}
-int quick(vector<int > &array,int l, int r)//r=n-1
+/****************/
+int quick(vector<int > &array, int l, int r)//r=n-1
 {
 	if (l >= r)
 	{
@@ -150,17 +110,69 @@ int quick(vector<int > &array,int l, int r)//r=n-1
 			swap(array[left], array[i]);
 		}
 	}
-	left ++;
+	left++;
 	swap(array[left], array[pivot]);
-	quick(array, l, left-1);
-	quick(array, left+1, r);
-	return 0;
+	quick(array, l, left - 1);
+	quick(array, left + 1, r);
+	return 1;
 }
+
 int quickSort(vector<int > &array, int n)
 {
 	quick(array, 0, n - 1);
 	return 1;
 }
+
+/************heapSort***********************/
+
+void heapMax(vector<int> &array, int n, int i)
+{
+	int largest = i; 
+	int l = 2 * i + 1; // left = 2*i + 1 
+	int r = 2 * i + 2; // right = 2*i + 2 
+	////////////////////////////////////////
+	
+	if (l < n && array[l] > array[largest])
+	{
+		largest = l;
+	}
+	
+
+	
+	if (r < n && array[r] > array[largest])
+	{
+		largest = r;
+	}
+	///////////////////////////////////////
+
+	
+	if (largest != i)
+	{
+		swap(array[i], array[largest]);
+
+		heapMax(array, n, largest);
+	}
+}
+
+ 
+
+int heapSort(vector<int > &array, int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+	{
+		heapMax(array, n, i);
+
+	}
+
+	
+	for (int i = n - 1; i >= 0; i--)
+	{
+		swap(array[0], array[i]);
+		heapMax(array, i, 0);
+	}
+	return 1;
+}
+/****************merge_sort*********************/
 void merge(vector<int> &array, int l, int m, int r)
 {
 	int i, j, k;
@@ -214,8 +226,6 @@ void merge(vector<int> &array, int l, int m, int r)
 		}
 	}
 
-	/* l is for left index and r is right index of the
-	sub-array of arr to be sorted */
 
 	int mergesort(vector<int> &array, int l, int r)
 	{
@@ -253,25 +263,23 @@ void countSort(vector<int> &array, int n, int exp)
 {
 	vector<int> output; 
 	output.resize(n);
-	int i, count[10] = { 0 };
+	vector<int> count[10];
 
 	
-	for (i = 0; i < n; i++)
-		count[(array[i] / exp) % 10]++;
-
-	
-	for (i = 1; i < 10; i++)
-		count[i] += count[i - 1];
-
-	for (i = n - 1; i >= 0; i--)
-	{
-		output[count[(array[i] / exp) % 10] - 1] = array[i];
-		count[(array[i] / exp) % 10]--;
+	for (int i = 0; i < n; i++)
+	{ 
+		count[(array[i] / exp) % 10].push_back(array[i]);
 	}
+	array.resize(0);
+	for (int i = 0; i < 10; i++)
+	{ 
+		for (int j = 0; j < count[i].size(); j++)
+		{
+			array.push_back(count[i][j]);
+		}
+	}
+	
 
-
-	for (i = 0; i < n; i++)
-		array[i] = output[i];
 }
 int radixSort(vector<int> &array, int n)
 {
